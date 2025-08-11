@@ -1,0 +1,143 @@
+{
+    "packages": [
+        {
+            "name": "maikuolan/common",
+            "version": "v2.14.0",
+            "version_normalized": "2.14.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Maikuolan/Common.git",
+                "reference": "726afbf426f932964c304c99ab2e6e4172ce73ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Maikuolan/Common/zipball/726afbf426f932964c304c99ab2e6e4172ce73ac",
+                "reference": "726afbf426f932964c304c99ab2e6e4172ce73ac",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-pcre": "*",
+                "php": ">=7.2.0"
+            },
+            "time": "2025-07-02T16:21:02+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Maikuolan\\Common\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Common classes package. Contains some common classes written for CIDRAM, phpMussel, etc, available for additional use elsewhere via this package.",
+            "keywords": [
+                "classes",
+                "common",
+                "l10n",
+                "php",
+                "yaml"
+            ],
+            "support": {
+                "docs": "https://github.com/Maikuolan/Common/tree/v2/_docs",
+                "issues": "https://github.com/Maikuolan/Common/issues",
+                "rss": "https://github.com/Maikuolan/Common/releases.atom",
+                "source": "https://github.com/Maikuolan/Common"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../maikuolan/common"
+        },
+        {
+            "name": "phpmussel/core",
+            "version": "v3.6.2",
+            "version_normalized": "3.6.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/Core.git",
+                "reference": "c1bf8872e34ba8ff603059d7510e5187ab99d894"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/Core/zipball/c1bf8872e34ba8ff603059d7510e5187ab99d894",
+                "reference": "c1bf8872e34ba8ff603059d7510e5187ab99d894",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "maikuolan/common": "^2.12.2",
+                "php": ">=7.2.0"
+            },
+            "suggest": {
+                "ext-apcu": ">=4",
+                "ext-bz2": "*",
+                "ext-curl": "*",
+                "ext-lzf": "*",
+                "ext-rar": "*",
+                "ext-zip": "*"
+            },
+            "time": "2025-06-10T13:08:09+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "phpMussel core",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/Core/issues",
+                "rss": "https://github.com/phpMussel/Core/releases.atom",
+                "source": "https://github.com/phpMussel/Core"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/core"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

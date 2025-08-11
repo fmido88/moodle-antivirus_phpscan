@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'pharouk/phpscan',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '74be5e81aebf701e197e9d770c2b90c83b277dc3',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'maikuolan/common' => array(
+            'pretty_version' => 'v2.14.0',
+            'version' => '2.14.0.0',
+            'reference' => '726afbf426f932964c304c99ab2e6e4172ce73ac',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../maikuolan/common',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'pharouk/phpscan' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '74be5e81aebf701e197e9d770c2b90c83b277dc3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpmussel/core' => array(
+            'pretty_version' => 'v3.6.2',
+            'version' => '3.6.2.0',
+            'reference' => 'c1bf8872e34ba8ff603059d7510e5187ab99d894',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmussel/core',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

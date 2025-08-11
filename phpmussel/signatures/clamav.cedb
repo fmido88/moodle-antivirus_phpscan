@@ -1,0 +1,25 @@
+phpMussel°
+=== Complex extended signatures database (ClamAV) ===
+
+=== Derived from ClamAV container database (CDB) files ===
+$container:zipfile;FN:Order\.Pdf_______________________________________________________________\.exe$; X-1435085
+$container:zipfile;FN:Courrt.{1,15}\.scr$; Toa-1
+$container:zipfile;FN:shipment.{0,50}\.exe\.doc$; Toa-2
+$container:rarfile;FN:invoice.*\.exe$; Toa-3
+
+=== Archive metadata signatures ===
+$crc32b:11e437b3;$StringLength:26624; Dldr-zippwd-6
+$crc32b:75eca36e;$StringLength:2377; Dldr.Small-1675-zippwd
+$crc32b:ba9f27fb;$StringLength:21008; Dumador-31-zippwd-1
+$crc32b:e249e94f;$StringLength:44544; Peed-zippwd
+$crc32b:19bce3de;$StringLength:58368; Zbot-zippwd
+$crc32b:cb762251;$StringLength:55311; Bagle-zippwd-27
+$crc32b:4cd5f4d6;$StringLength:57935; Bagle-zippwd-28
+$crc32b:7cea1eb6;$StringLength:57935; Bagle-zippwd-29
+$crc32b:db7ecbe9;$StringLength:57935; Bagle-zippwd-30
+$crc32b:808ad272;$StringLength:50176; Banwarum.B-zippwd
+$crc32b:7b3fcf13;$StringLength:75776; Kimazo.A-zippwd
+$crc32b:5f6f7a3f;$StringLength:72767; Padowor.A-zippwd
+
+=== Adapted from ClamAV logical signatures (hopefully to be eventually automated at some point in the future) ===
+$is_html:1;FD-NORM-RX:7265706c616365.{0,1000}7265706c616365;FD-NORM-RX:636872286362797465.{0,200}6d696428.{0,1000}636872286362797465.{0,200}6d696428; VBAgent-6647891-0.Equiv

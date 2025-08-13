@@ -40,6 +40,7 @@ class scans {
         'mustache',
         '.',
     ];
+
     /**
      * Initialize and return instance of php malware scanner.
      * @return MalwareScanner
@@ -129,5 +130,4 @@ class scans {
 
         return $problems;
     }
-
 }

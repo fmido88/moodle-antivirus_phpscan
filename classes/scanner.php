@@ -30,10 +30,22 @@ require_once(__DIR__ . '/../scr34m/php-malware-scanner/scan.php');
  */
 class scanner extends \core\antivirus\scanner {
 
-
+    /**
+     * Are the antivirus settings configured?
+     * We use internal php code and no need for configurations.
+     * @return true
+     */
     public function is_configured() {
         return true;
     }
+
+    /**
+     * Scan file.
+     *
+     * @param string $file Full path to the file.
+     * @param string $filename Name of the file (could be different from physical file if temp file is used).
+     * @return int Scanning result constants.
+     */
     public function scan_file($file, $filename) {
         
         $results = scans::scan_files([$file]);

@@ -25,4 +25,5 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'antivirus_phpscan';
+$string['pluginname'] = 'PHP Scan';
+$string['scansystem'] = 'Scan system files';

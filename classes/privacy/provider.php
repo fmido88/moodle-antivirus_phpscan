@@ -14,18 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace antivirus_phpscan\privacy;
+
 /**
- * Version information for antivirus_phpscan
+ * Class provider
  *
  * @package    antivirus_phpscan
  * @copyright  2025 Mohammad Farouk <phun.for.physics@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->component    = 'antivirus_phpscan';
-$plugin->release      = '1.0';
-$plugin->version      = 2025080502;
-$plugin->requires     = 2024042201;
-$plugin->maturity     = MATURITY_BETA;
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Return reason string identifier.
+     * @return string
+     */
+    public function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}

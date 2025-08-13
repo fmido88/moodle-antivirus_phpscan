@@ -33,15 +33,21 @@ require_once(__DIR__ . '/../../scr34m/php-malware-scanner/scan.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class scan extends \core\task\scheduled_task {
+    /**
+     * Return the task name.
+     * @return string
+     */
     public function get_name() {
-        return get_string('pluginname', 'antivirus_phpscan');
+        return get_string('scansystem', 'antivirus_phpscan');
     }
 
+    /**
+     * Execute scanning the files.
+     */
     public function execute() {
         core_php_time_limit::raise();
         raise_memory_limit(MEMORY_HUGE);
         $lastscan = (int)get_config('antivirus_phpscan', 'lastscan');
-        $lastscan = 0;
         $start = time();
 
         $files = self::get_files($lastscan);
@@ -57,6 +63,7 @@ class scan extends \core\task\scheduled_task {
 
         mtrace("Infected files: " . count($problems));
         foreach($problems as $in) {
+            // Todo: save files to log table.
             mtrace($in);
         }
 

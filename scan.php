@@ -35,6 +35,7 @@ $PAGE->set_context(context_system::instance());
 $PAGE->set_heading($SITE->fullname);
 
 $scanner = scans::get_phpmussel_scanner();
+
 $scan = new MalwareScanner(false);
 $scan->setFlagNoStop(true);
 $scan->setFlagHideOk(true);
@@ -48,7 +49,8 @@ raise_memory_limit(MEMORY_UNLIMITED);
 
 echo $OUTPUT->header();
 
-$results = $scanner->scan($CFG->dirroot. '/enrol', 3);
+$results = $scan->scan($CFG->dirroot. '/enrol');
+
 echo '<pre>';
 var_dump($results);
 echo '</pre>';

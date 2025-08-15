@@ -48,7 +48,7 @@ class scanner extends \core\antivirus\scanner {
      */
     public function scan_file($file, $filename) {
         
-        $results = scans::scan_files([$file]);
+        $results = scans::scan_files([$filename => $file]);
 
         return !empty($results) ? self::SCAN_RESULT_FOUND : self::SCAN_RESULT_OK ;
     }

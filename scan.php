@@ -26,7 +26,7 @@ use antivirus_phpscan\scans;
 
 require('../../../config.php');
 
-require_login();
+require_admin();
 
 $url = new moodle_url('/lib/antivirus/phpscan/scan.php', []);
 $PAGE->set_url($url);
@@ -34,22 +34,22 @@ $PAGE->set_context(context_system::instance());
 
 $PAGE->set_heading($SITE->fullname);
 
-$scanner = scans::get_phpmussel_scanner();
+// $scanner = scans::get_phpmussel_scanner();
 
-$scan = new MalwareScanner(false);
-$scan->setFlagNoStop(true);
-$scan->setFlagHideOk(true);
-$scan->setFlagScanEverything(true);
-$scan->setFlagNoStop(true);
-$scan->setFlagHideWhitelist(true);
-$scan->setFlagBase64(true);
+// $scan = new MalwareScanner(false);
+// $scan->setFlagNoStop(true);
+// $scan->setFlagHideOk(true);
+// $scan->setFlagScanEverything(true);
+// $scan->setFlagNoStop(true);
+// $scan->setFlagHideWhitelist(true);
+// $scan->setFlagBase64(true);
 
 core_php_time_limit::raise();
 raise_memory_limit(MEMORY_UNLIMITED);
 
 echo $OUTPUT->header();
 
-$results = $scan->scan($CFG->dirroot. '/enrol');
+// $results = $scan->scan($CFG->dirroot. '/enrol');
 
 echo '<pre>';
 var_dump($results);

@@ -123,7 +123,7 @@ class scans {
         $loader = self::get_phpmussel_scanner(true);
         $integers = $loader->ScanResultsIntegers;
         foreach ($results as $file => $result) {
-            if ($integers[$file] !== 1) {
+            if ($integers[$file] !== 1 && !empty($result)) {
                 $problems[] = $file . ': ' . $result;
             }
         }

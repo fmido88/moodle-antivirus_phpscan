@@ -40,16 +40,29 @@ class scanner extends \core\antivirus\scanner {
     }
 
     /**
-     * Scan file.
+     * Scan a file.
      *
      * @param string $file Full path to the file.
      * @param string $filename Name of the file (could be different from physical file if temp file is used).
      * @return int Scanning result constants.
      */
     public function scan_file($file, $filename) {
-        
-        $results = scans::scan_files([$filename => $file]);
+        try {
+            scans::log("Scanning file: {$filename}");
+            $results = scans::scan_files([$filename => $file]);
 
-        return !empty($results) ? self::SCAN_RESULT_FOUND : self::SCAN_RESULT_OK ;
+            if (empty($results)) {
+                return self::SCAN_RESULT_OK;
+            }
+
+            $this->set_scanning_notice(implode(",\n", $results));
+            return self::SCAN_RESULT_FOUND;
+        } catch (\Throwable $e) {
+            $this->set_scanning_notice($e->getMessage());
+            scans::log("Error scanning file: {$filename}. Error: " . $e->getMessage());
+            scans::log($e->getTraceAsString());
+
+            return self::SCAN_RESULT_ERROR;
+        }
     }
 }

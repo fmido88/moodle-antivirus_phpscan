@@ -49,10 +49,11 @@ raise_memory_limit(MEMORY_UNLIMITED);
 
 echo $OUTPUT->header();
 
-// $results = $scan->scan($CFG->dirroot. '/enrol');
+// $files = glob($CFG->dirroot . '/mod/zoom/*');
+// $results = scans::scan_files($files);
 
-echo '<pre>';
-var_dump($results);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($results);
+// echo '</pre>';
 
 echo $OUTPUT->footer();

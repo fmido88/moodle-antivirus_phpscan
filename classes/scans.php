@@ -69,29 +69,31 @@ class scans {
         return $scan;
     }
 
-    /**
-     * Initialize and return instance of php mussel scanner.
-     * @return \phpMussel\Core\Scanner|\phpMussel\Core\Loader
-     */
-    public static function get_phpmussel_scanner($loaderonly = false) {
-        static $scanner;
+    protected static function get_phpmussel_loader(): Loader {
+        global $CFG;
         static $loader;
-        if (!isset($scan) || !$scan instanceof \phpMussel\Core\Scanner) {
-            global $CFG;
+        if (!isset($loader) || !($loader instanceof Loader)) {
             $cachedir = make_cache_directory('phpmussel');
             $quarntine = $CFG->dataroot . DIRECTORY_SEPARATOR . quarantine::DEFAULT_QUARANTINE_FOLDER;
             $vendordir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'phpmussel';
-            $loader = new \phpMussel\Core\Loader(
+            $loader = new Loader(
                 $vendordir . DIRECTORY_SEPARATOR . 'config.yml',
                 $cachedir,
                 $quarntine,
                 $vendordir . DIRECTORY_SEPARATOR . 'signatures',
                 $vendordir);
-            $scanner = new \phpMussel\Core\Scanner($loader);
         }
-
-        if ($loaderonly) {
-            return $loader;
+        return $loader;
+    }
+    /**
+     * Initialize and return instance of php mussel scanner.
+     * @return \phpMussel\Core\Scanner
+     */
+    public static function get_phpmussel_scanner(): \phpMussel\Core\Scanner {
+        static $scanner;
+        if (!isset($scanner) || !($scanner instanceof \phpMussel\Core\Scanner)) {
+            $loader = self::get_phpmussel_loader();
+            $scanner = new \phpMussel\Core\Scanner($loader);
         }
 
         return $scanner;
@@ -110,24 +112,32 @@ class scans {
             $infected = $scanner->scan($file);
             if ($infected) {
                 $problems[] = $file;
+                self::log('Malware scanner detected infection in file: ' . $file);
             }
         }
         ob_end_clean();
 
+        $loader = self::get_phpmussel_loader();
         $scanner = self::get_phpmussel_scanner();
         $results = $scanner->scan($files, 3);
 
-        /**
-         * @var Loader
-         */
-        $loader = self::get_phpmussel_scanner(true);
         $integers = $loader->ScanResultsIntegers;
         foreach ($results as $file => $result) {
             if ($integers[$file] !== 1 && !empty($result)) {
                 $problems[] = $file . ': ' . $result;
+                self::log('PHP Mussel detected infection in file: ' . $file . ' Result: ' . $result);
             }
         }
 
         return $problems;
+    }
+    public static function log(...$errors) {
+        ob_start();
+        var_dump(...$errors);
+        $output = ob_get_clean();
+        debugging($output, DEBUG_DEVELOPER);
+        $file = fopen(__DIR__ . '/scan.log', 'a');
+        fwrite($file, date('Y-m-d H:i:s') . ' ' . $output . PHP_EOL);
+        fclose($file);
     }
 }
